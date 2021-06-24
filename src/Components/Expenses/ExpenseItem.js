@@ -1,6 +1,6 @@
 import ExpenseDate from "./ExpenseDate";
 
-import "../Styles/ExpenseItem.css";
+import "../../Styles/ExpenseItem.css";
 
 const ExpenseItem = ({ title, amount, date }) => {
   return (
