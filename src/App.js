@@ -28,9 +28,15 @@ const App = () => {
     },
   ];
 
+  // Here 'expense' will contain entered form data coming from 'NewExpense' component.
+  const addExpenseHandler = (expense) => {
+    console.log("In APP JS");
+    console.log(expense);
+  };
+
   return (
     <div>
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
   );

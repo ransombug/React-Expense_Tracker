@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import "../../Styles/ExpenseForm.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = ({ onSaveExpenseData }) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
@@ -30,7 +30,8 @@ const ExpenseForm = () => {
       date: enteredDate,
     };
 
-    console.log(expenseData);
+    // Pass the data as argument into 'NewExpense' component.
+    onSaveExpenseData(expenseData);
 
     //To Clear the input fields
     setEnteredTitle("");
