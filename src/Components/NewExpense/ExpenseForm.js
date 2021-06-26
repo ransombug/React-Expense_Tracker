@@ -27,7 +27,7 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
     const expenseData = {
       title: enteredTitle,
       amount: enteredAmount,
-      date: enteredDate,
+      date: new Date(enteredDate),
     };
 
     // Pass the data as argument into 'NewExpense' component.
