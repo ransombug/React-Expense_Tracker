@@ -13,6 +13,24 @@ const Expenses = ({ items }) => {
     setFilteredYear(selectedYear);
   };
 
+  const filteredExpenses = items.filter((x) => {
+    return x.date.getFullYear().toString() === filteredYear;
+  });
+
+  // Logic olaced outside JSX for code readability
+  let expensesContent = <h4 style={{ color: "white" }}>No Expenses Found !</h4>;
+
+  if (filteredExpenses.length > 0) {
+    expensesContent = filteredExpenses.map((x) => (
+      <ExpenseItem
+        key={uuid()}
+        title={x.title}
+        amount={x.amount}
+        date={x.date}
+      />
+    ));
+  }
+
   return (
     <div>
       <ExpenseFilter
@@ -20,14 +38,8 @@ const Expenses = ({ items }) => {
         onChangeFilter={filterChangeHandler}
       />
 
-      {items.map((x) => (
-        <ExpenseItem
-          key={uuid()}
-          title={x.title}
-          amount={x.amount}
-          date={x.date}
-        />
-      ))}
+      {/* Outputting Conditional content */}
+      {expensesContent}
     </div>
   );
 };
